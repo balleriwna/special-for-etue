@@ -77,22 +77,22 @@
             Our Little Safe Space
         </h1>
         <p class="text-textMuted text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-            Met in the virtual world, but connected by real heart. Here is a sweet corner dedicated to Kak Je, Biyel, Sal, and all our precious moments.
+            We might have met through screens, but what we built together is realer and warmer than anything else. Dedicated to Kak Je, Biyel, and Sal.
         </p>
 
         <!-- Cute Interactive Actions Bar -->
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
             <button onclick="pullRandomNote()" class="px-5 py-3 bg-skyAccent hover:bg-[#0284c7] text-navyDark font-bold text-xs sm:text-sm rounded-2xl shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
-                <i class="fa-solid fa-cookie-bite text-base"></i> Open Today's Random Note
+                <i class="fa-solid fa-cookie-bite text-base"></i> Read a Heartfelt Note
             </button>
             <button onclick="sendVirtualHug()" class="px-5 py-3 bg-navyCard hover:bg-navyLight text-softBlue border border-softBlue/30 font-semibold text-xs sm:text-sm rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
-                <i class="fa-solid fa-heart text-pink-400"></i> Send Virtual Hug
+                <i class="fa-solid fa-heart text-pink-400"></i> Send Endless Hugs
             </button>
         </div>
     </header>
 
-    <!-- Cute Sisterhood Energy Bar Widget -->
-    <section class="max-w-md mx-auto px-4 mb-12 relative z-10">
+    <!-- Sisterhood Hug Counter -->
+    <section class="max-w-md mx-auto px-4 mb-10 relative z-10">
         <div class="bg-navyCard/80 backdrop-blur-md rounded-2xl p-4 border border-softBlue/20 text-center">
             <div class="flex items-center justify-between text-xs mb-2">
                 <span class="text-textMuted"><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Sisterhood Hug Counter</span>
@@ -104,7 +104,29 @@
         </div>
     </section>
 
-    <!-- MAIN HERO PHOTO: trio-1.jpg (SUPER BIG & NOT CROPPED AT ALL) -->
+    <!-- TWS - BFF Music Player Widget -->
+    <section class="max-w-md mx-auto px-4 mb-14 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-4 border border-softBlue/20 shadow-xl flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="relative w-12 h-12 rounded-full bg-navyDark border-2 border-softBlue flex items-center justify-center overflow-hidden">
+                    <i id="cdIcon" class="fa-solid fa-compact-disc text-2xl text-softBlue animate-spin-slow"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-textLight">BFF (Best Friends Forever) 🎵</h4>
+                    <p class="text-[10px] text-textMuted">TWS (투어스) ~ Our Theme Song</p>
+                </div>
+            </div>
+            <button onclick="toggleMusicPlay()" id="musicBtn" class="w-10 h-10 rounded-full bg-softBlue text-navyDark flex items-center justify-center font-bold shadow-md hover:bg-skyAccent transition-colors">
+                <i class="fa-solid fa-pause text-sm"></i>
+            </button>
+        </div>
+        <!-- Hidden Audio Element -->
+        <audio id="bgMusic" loop autoplay>
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <!-- MAIN HERO PHOTO: trio-1.jpg (Gede, Utuh, Pas) -->
     <section class="max-w-3xl mx-auto px-4 mb-16 relative z-10">
         <div class="bg-navyCard rounded-3xl p-4 sm:p-7 card-glow border border-softBlue/30 text-center relative">
             
@@ -113,105 +135,86 @@
 
             <!-- Full Sized Portrait Photo Container -->
             <div class="relative w-full max-w-xl mx-auto rounded-2xl overflow-hidden bg-navyDark mb-6 border border-softBlue/20 shadow-2xl">
-                <!-- Foto Bertiga Utama -->
-                <img src="trio-1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80';" alt="Kak Je, Biyel & Sal" class="w-full h-auto max-h-[700px] object-contain mx-auto block rounded-2xl">
+                <img src="trio-1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80';" alt="Kak Je, Biyel & Sal" class="w-full h-auto max-h-[750px] object-contain mx-auto block rounded-2xl">
             </div>
 
-            <div class="max-w-xl mx-auto">
+            <div class="max-w-xl mx-auto px-2">
                 <span class="font-hand text-2xl text-softBlue block mb-1">~ The Three Sisters ~</span>
-                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mb-2">Three Hearts, One Sisterhood</h2>
-                <p class="text-textMuted text-xs sm:text-sm leading-relaxed">
-                    "Through late night talks, random stories, bad days, and happy moments, I am forever grateful that our paths crossed."
+                <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mb-3">Three Hearts, One Forever Bond</h2>
+                <p class="text-textMuted text-xs sm:text-sm leading-relaxed text-justify sm:text-center">
+                    I honestly never expected that meeting people through a screen could bring this much warmth into my life. We started as strangers, but somewhere along the way, between late night messages and sharing random bits of our days, you two became my home. Thank you for choosing to stay and for making this virtual world feel so real and safe.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Mini Vibe / Music Player Widget -->
-    <section class="max-w-md mx-auto px-4 mb-16 relative z-10">
-        <div class="bg-navyCard rounded-3xl p-4 border border-softBlue/20 shadow-xl flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <div class="relative w-12 h-12 rounded-full bg-navyDark border-2 border-softBlue flex items-center justify-center overflow-hidden">
-                    <i id="cdIcon" class="fa-solid fa-compact-disc text-2xl text-softBlue animate-spin-slow"></i>
-                </div>
-                <div>
-                    <h4 class="text-xs font-bold text-textLight">Sisterhood Vibe Playlist 🎵</h4>
-                    <p class="text-[10px] text-textMuted">Playing: Always Your Safe Place</p>
-                </div>
-            </div>
-            <button onclick="toggleMusicPlay()" id="musicBtn" class="w-10 h-10 rounded-full bg-softBlue text-navyDark flex items-center justify-center font-bold shadow-md hover:bg-skyAccent transition-colors">
-                <i class="fa-solid fa-pause text-sm"></i>
-            </button>
-        </div>
-    </section>
-
-    <!-- Special Individual Profiles: Kak Je, Biyel, Sal -->
+    <!-- Special Individual Profiles with Long Touching Letters -->
     <section class="max-w-6xl mx-auto px-4 mb-20 relative z-10">
         <div class="text-center mb-10">
-            <h3 class="font-serif text-3xl font-semibold text-textLight">The Trio Profiles</h3>
-            <p class="text-xs text-softBlue mt-1 font-hand text-xl">A special corner for each sister</p>
+            <h3 class="font-serif text-3xl font-semibold text-textLight">Letters to My Sisters</h3>
+            <p class="text-xs text-softBlue mt-1 font-hand text-xl">Words I don't say often enough</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Kak Je Card -->
-            <div class="bg-navyCard rounded-3xl p-5 card-glow border border-softBlue/20 flex flex-col justify-between relative transform hover:-translate-y-1 transition-all">
+            <div class="bg-navyCard rounded-3xl p-6 card-glow border border-softBlue/20 flex flex-col justify-between relative transform hover:-translate-y-1 transition-all">
                 <div>
-                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-navyDark border border-softBlue/20">
+                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-navyDark border border-softBlue/20">
                         <img src="kak-je.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';" alt="Kak Je" class="w-full h-full object-cover">
                     </div>
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-[10px] font-bold text-navyDark bg-softBlue px-3 py-1 rounded-full uppercase tracking-wider">The Eldest</span>
                         <span class="text-xs text-textMuted font-serif">Kak Je</span>
                     </div>
-                    <h4 class="font-serif text-xl font-semibold text-textLight mb-2">To Our Dearest Kak Je</h4>
-                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-4">
-                        Thank you for being the calm anchor in our group. Being the oldest, you always bring so much comfort, patience, and warmth whenever things get overwhelming.
+                    <h4 class="font-serif text-xl font-semibold text-textLight mb-3">To Our Dearest Kak Je</h4>
+                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-4 text-justify">
+                        To Kak Je, the oldest of us three. Thank you for always being that quiet, comforting presence whenever life gets too loud. Being the oldest isn't always easy, and I know you carry things silently without wanting to burden anyone. But please remember that you don't always have to be the strong one for us. You are allowed to be tired, you are allowed to rest, and you can always lean on us too. Thank you for listening, for guiding us gently, and for making sure we always feel looked after. We love you so much, Kak Je.
                     </p>
                 </div>
                 <div class="pt-3 border-t border-navyLight text-xs text-softBlue flex items-center justify-between">
-                    <span><i class="fa-solid fa-heart text-skyAccent mr-1"></i> Big Sister Warmth</span>
+                    <span><i class="fa-solid fa-heart text-skyAccent mr-1"></i> Big Sister Safe Haven</span>
                     <span class="font-hand text-lg text-textMuted">#01</span>
                 </div>
             </div>
 
             <!-- Biyel Card -->
-            <div class="bg-navyCard rounded-3xl p-5 card-glow border border-softBlue/20 flex flex-col justify-between relative transform hover:-translate-y-1 transition-all">
+            <div class="bg-navyCard rounded-3xl p-6 card-glow border border-softBlue/20 flex flex-col justify-between relative transform hover:-translate-y-1 transition-all">
                 <div>
-                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-navyDark border border-softBlue/20">
+                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-navyDark border border-softBlue/20">
                         <img src="biyel.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80';" alt="Biyel" class="w-full h-full object-cover">
                     </div>
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-[10px] font-bold text-navyDark bg-softBlue px-3 py-1 rounded-full uppercase tracking-wider">The Middle</span>
                         <span class="text-xs text-textMuted font-serif">Biyel</span>
                     </div>
-                    <h4 class="font-serif text-xl font-semibold text-textLight mb-2">To Our Sweet Biyel</h4>
-                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-4">
-                        Thank you for always keeping us connected and making sure everyone feels heard. Your thoughtful energy holds our little circle so tight together.
+                    <h4 class="font-serif text-xl font-semibold text-textLight mb-3">To Our Sweet Biyel</h4>
+                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-4 text-justify">
+                        To Biyel, the middle bridge that holds our little world together. Thank you for always caring so deeply about the small details and for checking up on us when we go quiet. Being in the middle means holding hands with both the oldest and the youngest, and you do it with so much love and sincerity. Thank you for being the glue that keeps our conversations alive and making sure no one ever feels left out or alone.
                     </p>
                 </div>
                 <div class="pt-3 border-t border-navyLight text-xs text-softBlue flex items-center justify-between">
-                    <span><i class="fa-solid fa-sparkles text-skyAccent mr-1"></i> Thoughtful Energy</span>
+                    <span><i class="fa-solid fa-sparkles text-skyAccent mr-1"></i> Loving Heart</span>
                     <span class="font-hand text-lg text-textMuted">#02</span>
                 </div>
             </div>
 
             <!-- Sal Card -->
-            <div class="bg-navyCard rounded-3xl p-5 card-glow border border-softBlue/20 flex flex-col justify-between relative transform hover:-translate-y-1 transition-all">
+            <div class="bg-navyCard rounded-3xl p-6 card-glow border border-softBlue/20 flex flex-col justify-between relative transform hover:-translate-y-1 transition-all">
                 <div>
-                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-navyDark border border-softBlue/20">
+                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-5 bg-navyDark border border-softBlue/20">
                         <img src="sal.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80';" alt="Sal" class="w-full h-full object-cover">
                     </div>
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-[10px] font-bold text-navyDark bg-softBlue px-3 py-1 rounded-full uppercase tracking-wider">The Youngest</span>
                         <span class="text-xs text-textMuted font-serif">Sal</span>
                     </div>
-                    <h4 class="font-serif text-xl font-semibold text-textLight mb-2">To Our Precious Sal</h4>
-                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-4">
-                        To our precious youngest sister, thank you for bringing so much brightness and laughter into our days. Never forget how loved and cared for you are by us.
+                    <h4 class="font-serif text-xl font-semibold text-textLight mb-3">To Our Precious Sal</h4>
+                    <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-4 text-justify">
+                        To our precious youngest sister Sal, you bring so much genuine joy and lightness into our lives just by being you. Growing up and facing the world can feel overwhelming and scary sometimes, but I need you to promise that you will never doubt yourself. Whenever things get tough or you feel lost, remember that you have two older sisters who will always stand behind you, protect you, and cheer for you no matter what. You are so loved, Sal.
                     </p>
                 </div>
                 <div class="pt-3 border-t border-navyLight text-xs text-softBlue flex items-center justify-between">
-                    <span><i class="fa-solid fa-star text-skyAccent mr-1"></i> Youngest Joy</span>
+                    <span><i class="fa-solid fa-star text-skyAccent mr-1"></i> Brightest Joy</span>
                     <span class="font-hand text-lg text-textMuted">#03</span>
                 </div>
             </div>
@@ -221,8 +224,8 @@
     <!-- Trio Moments Gallery -->
     <section class="max-w-6xl mx-auto px-4 relative z-10">
         <div class="mb-8 text-center sm:text-left">
-            <h3 class="font-serif text-2xl font-semibold text-textLight">Our Trio Moments</h3>
-            <p class="text-xs text-textMuted mt-1">Click any memory card to open the note</p>
+            <h3 class="font-serif text-2xl font-semibold text-textLight">Precious Trio Memories</h3>
+            <p class="text-xs text-textMuted mt-1">Click any memory card to open the long letter</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="memoryGrid">
@@ -230,7 +233,7 @@
         </div>
     </section>
 
-    <!-- Modal Pop-up Detail Foto & Pesan -->
+    <!-- Modal Pop-up Detail Foto & Pesan Panjang -->
     <div id="photoModal" class="fixed inset-0 bg-navyDark/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-navyCard rounded-3xl p-6 max-w-lg w-full shadow-2xl relative border border-softBlue/30 max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-textMuted hover:text-textLight w-8 h-8 rounded-full flex items-center justify-center bg-navyDark border border-softBlue/20">
@@ -241,7 +244,7 @@
             </div>
             <span id="modalCategory" class="text-[10px] font-bold text-navyDark bg-softBlue px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">Category</span>
             <h3 id="modalTitle" class="font-serif text-2xl text-textLight mb-3">Title</h3>
-            <p id="modalText" class="text-textMuted text-sm leading-relaxed mb-6">Text...</p>
+            <p id="modalText" class="text-textMuted text-sm leading-relaxed mb-6 text-justify">Text...</p>
             <div class="text-right">
                 <button onclick="closeModal()" class="px-5 py-2.5 bg-softBlue hover:bg-skyAccent text-navyDark text-xs font-bold rounded-xl transition-colors">
                     Close Note
@@ -256,23 +259,23 @@
             {
                 id: 1,
                 category: "Trio",
-                title: "Safe Place to Land",
+                title: "A Safe Harbor in the Noise",
                 image: "trio-2.jpg",
-                text: "Whenever the world gets overwhelming, coming back to our group chat always brings instant peace. Distance means nothing when people mean so much to each other."
+                text: "Life outside can be exhausting, scary, and full of expectations that we never asked for. But whenever I open our chat, it feels like stepping into a warm room away from a cold storm. Thank you for never making me feel silly for sharing my random thoughts, and thank you for being the place where I can just exist as myself without pretending to be okay when I am not."
             },
             {
                 id: 2,
                 category: "Trio",
-                title: "Late Night Yapping",
+                title: "The Magic of Late Night Conversations",
                 image: "trio-3.jpg",
-                text: "From completely random stories to deep emotional heart-to-hearts, every single conversation with you two feels like home. I hope we stay like this forever."
+                text: "Some of my favorite memories are the nights when we should all be sleeping, but instead we stay up talking about the most random things. We laugh until our stomachs hurt, share deep secrets, and give each other encouragement for the next day. Those quiet hours with you two mean more to me than words could ever explain."
             },
             {
                 id: 3,
                 category: "Trio",
-                title: "Forever Sisters",
+                title: "Sisters Across Distance",
                 image: "trio-4.jpg",
-                text: "No matter how long or short we have known each other, being around you two feels like home. Thank you for being my constant sisters and my safe space."
+                text: "People often say that online friendships don't last or that distance makes people drift apart. But what we have proved all of them wrong. It doesn't matter how many kilometers lie between us or how busy life gets. Knowing that Kak Je, Biyel, and Sal have each other's backs is the greatest comfort I could ever ask for. We are sisters for life."
             }
         ];
 
@@ -312,42 +315,46 @@
             const randomItem = memories[Math.floor(Math.random() * memories.length)];
             openModal(randomItem.id);
             confetti({
-                particleCount: 50,
-                spread: 60,
+                particleCount: 60,
+                spread: 70,
                 origin: { y: 0.7 }
             });
         }
 
         let hugs = 100;
         function sendVirtualHug() {
-            hugs += 15;
-            if(hugs > 200) hugs = 200;
+            hugs += 20;
+            if(hugs > 300) hugs = 300;
             
             document.getElementById("hugBar").style.width = "100%";
-            document.getElementById("hugCountText").innerText = hugs + "% Warmth Sent!";
+            document.getElementById("hugCountText").innerText = hugs + "% Love Sent!";
             
             confetti({
-                particleCount: 80,
+                particleCount: 90,
                 spread: 100,
                 origin: { y: 0.6 },
                 colors: ['#38bdf8', '#bae6fd', '#f43f5e']
             });
 
-            alert("💖 Virtual Hug Sent to Kak Je & Sal!");
+            alert("💖 Massive Virtual Hug Sent to Kak Je & Sal!");
         }
 
         let isPlaying = true;
         function toggleMusicPlay() {
             const cd = document.getElementById("cdIcon");
             const btn = document.getElementById("musicBtn");
-            isPlaying = !isPlaying;
+            const audio = document.getElementById("bgMusic");
 
             if(isPlaying) {
-                cd.classList.add("animate-spin-slow");
-                btn.innerHTML = '<i class="fa-solid fa-pause text-sm"></i>';
-            } else {
+                audio.pause();
                 cd.classList.remove("animate-spin-slow");
                 btn.innerHTML = '<i class="fa-solid fa-play text-sm ml-0.5"></i>';
+                isPlaying = false;
+            } else {
+                audio.play();
+                cd.classList.add("animate-spin-slow");
+                btn.innerHTML = '<i class="fa-solid fa-pause text-sm"></i>';
+                isPlaying = true;
             }
         }
 
