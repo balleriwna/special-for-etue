@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Little Safe Space: Kak Je, Biyel & Sal</title>
+    <title>Our Safe Space: Kak Je, Biyel & Sal</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -22,11 +22,12 @@
                         serif: ['"Playfair Display"', 'serif'],
                     },
                     colors: {
-                        creamBg: '#fcf8f2',
-                        cardBg: '#ffffff',
-                        softRose: '#f4e3e3',
-                        warmPeach: '#e8a598',
-                        textDark: '#4a3b32',
+                        bgMain: '#F4F6F0',
+                        cardBg: '#FFFFFF',
+                        accentSage: '#8FA89B',
+                        softSage: '#E2E8E4',
+                        textDark: '#2D3732',
+                        mutedText: '#627068'
                     }
                 }
             }
@@ -34,14 +35,14 @@
     </script>
     <style>
         body {
-            background-color: #fcf8f2;
-            color: #4a3b32;
+            background-color: #F4F6F0;
+            color: #2D3732;
         }
         .card-shadow {
-            box-shadow: 0 10px 25px -5px rgba(232, 165, 152, 0.15);
+            box-shadow: 0 10px 25px -5px rgba(143, 168, 155, 0.18);
         }
         .card-shadow:hover {
-            box-shadow: 0 18px 35px -5px rgba(232, 165, 152, 0.28);
+            box-shadow: 0 18px 35px -5px rgba(143, 168, 155, 0.3);
         }
     </style>
 </head>
@@ -49,26 +50,32 @@
 
     <!-- Header Section -->
     <header class="text-center pt-14 pb-10 px-4 max-w-3xl mx-auto">
-        <span class="inline-block px-4 py-1.5 bg-softRose text-warmPeach text-xs font-bold rounded-full tracking-wider uppercase mb-4">
+        <span class="inline-block px-4 py-1.5 bg-softSage text-accentSage text-xs font-bold rounded-full tracking-wider uppercase mb-4">
             <i class="fa-solid fa-sparkles mr-1"></i> Connected by Heart
         </span>
         <h1 class="font-serif text-4xl sm:text-5xl text-textDark font-semibold mb-3 leading-tight">
             Our Little Safe Space
         </h1>
-        <p class="text-gray-600 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+        <p class="text-mutedText text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Met in the virtual world, but connected by real heart. Here is a sweet corner dedicated to Kak Je, Biyel, Sal, and all our precious moments.
         </p>
+
+        <!-- Tombol Random Message -->
+        <div class="mt-8">
+            <button onclick="pullRandomNote()" class="px-6 py-3 bg-accentSage hover:bg-[#7b9487] text-white font-medium text-xs sm:text-sm rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-2">
+                <i class="fa-solid fa-cookie-bite text-base"></i> Open Today's Random Note
+            </button>
+        </div>
     </header>
 
-    <!-- FOTO BERTIGA 1: Main Trio Hero / Cover Photo -->
+    <!-- FOTO BERTIGA 1: Main Cover Photo -->
     <section class="max-w-4xl mx-auto px-4 mb-14">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 card-shadow border border-softRose/50 text-center">
-            <div class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-6 bg-softRose flex items-center justify-center">
-                <!-- Foto Bertiga 1 -->
-                <img src="trio-1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80';" alt="Kak Je, Biyel & Sal" class="w-full h-full object-cover">
+        <div class="bg-white rounded-3xl p-5 sm:p-7 card-shadow border border-softSage text-center">
+            <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden mb-6 bg-softSage">
+                <img src="trio-1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80';" alt="Kak Je, Biyel & Sal" class="w-full h-full object-cover object-top">
             </div>
             <h2 class="font-serif text-2xl font-semibold text-textDark mb-2">Three Hearts, One Sisterhood</h2>
-            <p class="text-gray-600 text-sm leading-relaxed max-w-2xl mx-auto">
+            <p class="text-mutedText text-sm leading-relaxed max-w-2xl mx-auto">
                 "Through late night talks, random stories, bad days, and happy moments, I am forever grateful that our paths crossed."
             </p>
         </div>
@@ -78,70 +85,67 @@
     <section class="max-w-6xl mx-auto px-4 mb-16">
         <div class="text-center mb-8">
             <h3 class="font-serif text-2xl font-semibold text-textDark">The Trio</h3>
-            <p class="text-xs text-gray-500 mt-1">A special space for each of us</p>
+            <p class="text-xs text-mutedText mt-1">A special space for each of us</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Kak Je Card -->
-            <div class="bg-white rounded-3xl p-6 card-shadow border border-gray-100 flex flex-col justify-between">
+            <div class="bg-white rounded-3xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
                 <div>
-                    <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-softRose">
-                        <!-- Foto Kak Je -->
-                        <img src="kak-je.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';" alt="Kak Je" class="w-full h-full object-cover">
+                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-softSage">
+                        <img src="kak-je.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';" alt="Kak Je" class="w-full h-full object-cover object-center">
                     </div>
                     <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs font-bold text-warmPeach bg-softRose px-3 py-1 rounded-full uppercase">The Eldest</span>
+                        <span class="text-[10px] font-bold text-accentSage bg-softSage px-3 py-1 rounded-full uppercase">The Eldest</span>
                         <span class="text-xs text-gray-400 font-serif">Kak Je</span>
                     </div>
-                    <h4 class="font-serif text-xl font-semibold text-textDark mb-3">To Our Dearest Kak Je</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    <h4 class="font-serif text-xl font-semibold text-textDark mb-2">To Our Dearest Kak Je</h4>
+                    <p class="text-mutedText text-xs sm:text-sm leading-relaxed mb-4">
                         Thank you for being the calm anchor in our group. Being the oldest, you always bring so much comfort, patience, and warmth whenever things get overwhelming.
                     </p>
                 </div>
-                <div class="pt-4 border-t border-gray-100 text-xs text-gray-400 flex items-center justify-between">
-                    <span><i class="fa-solid fa-heart text-warmPeach mr-1"></i> Big Sister Warmth</span>
+                <div class="pt-3 border-t border-gray-100 text-xs text-mutedText flex items-center justify-between">
+                    <span><i class="fa-solid fa-heart text-accentSage mr-1"></i> Big Sister Warmth</span>
                 </div>
             </div>
 
             <!-- Biyel Card -->
-            <div class="bg-white rounded-3xl p-6 card-shadow border border-gray-100 flex flex-col justify-between">
+            <div class="bg-white rounded-3xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
                 <div>
-                    <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-softRose">
-                        <!-- Foto Biyel -->
-                        <img src="biyel.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80';" alt="Biyel" class="w-full h-full object-cover">
+                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-softSage">
+                        <img src="biyel.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80';" alt="Biyel" class="w-full h-full object-cover object-center">
                     </div>
                     <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs font-bold text-warmPeach bg-softRose px-3 py-1 rounded-full uppercase">The Middle</span>
+                        <span class="text-[10px] font-bold text-accentSage bg-softSage px-3 py-1 rounded-full uppercase">The Middle</span>
                         <span class="text-xs text-gray-400 font-serif">Biyel</span>
                     </div>
-                    <h4 class="font-serif text-xl font-semibold text-textDark mb-3">To Our Sweet Biyel</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    <h4 class="font-serif text-xl font-semibold text-textDark mb-2">To Our Sweet Biyel</h4>
+                    <p class="text-mutedText text-xs sm:text-sm leading-relaxed mb-4">
                         Thank you for always keeping us connected and making sure everyone feels heard. Your thoughtful energy holds our little circle so tight together.
                     </p>
                 </div>
-                <div class="pt-4 border-t border-gray-100 text-xs text-gray-400 flex items-center justify-between">
-                    <span><i class="fa-solid fa-sparkles text-warmPeach mr-1"></i> Thoughtful Energy</span>
+                <div class="pt-3 border-t border-gray-100 text-xs text-mutedText flex items-center justify-between">
+                    <span><i class="fa-solid fa-sparkles text-accentSage mr-1"></i> Thoughtful Energy</span>
                 </div>
             </div>
 
             <!-- Sal Card -->
-            <div class="bg-white rounded-3xl p-6 card-shadow border border-gray-100 flex flex-col justify-between">
+            <div class="bg-white rounded-3xl p-5 card-shadow border border-gray-100 flex flex-col justify-between">
                 <div>
-                    <div class="w-full h-56 rounded-2xl overflow-hidden mb-5 bg-softRose">
-                        <!-- Foto Sal -->
-                        <img src="sal.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80';" alt="Sal" class="w-full h-full object-cover">
+                    <div class="w-full aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-softSage">
+                        <img src="sal.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80';" alt="Sal" class="w-full h-full object-cover object-center">
                     </div>
                     <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs font-bold text-warmPeach bg-softRose px-3 py-1 rounded-full uppercase">The Youngest</span>
+                        <span class="text-[10px] font-bold text-accentSage bg-softSage px-3 py-1 rounded-full uppercase">The Youngest</span>
                         <span class="text-xs text-gray-400 font-serif">Sal</span>
                     </div>
-                    <h4 class="font-serif text-xl font-semibold text-textDark mb-3">To Our Precious Sal</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    <h4 class="font-serif text-xl font-semibold text-textDark mb-2">To Our Precious Sal</h4>
+                    <p class="text-mutedText text-xs sm:text-sm leading-relaxed mb-4">
                         To our precious youngest sister, thank you for bringing so much brightness and laughter into our days. Never forget how loved and cared for you are by us.
                     </p>
                 </div>
-                <div class="pt-4 border-t border-gray-100 text-xs text-gray-400 flex items-center justify-between">
-                    <span><i class="fa-solid fa-star text-warmPeach mr-1"></i> Youngest Joy</span>
+                <div class="pt-3 border-t border-gray-100 text-xs text-mutedText flex items-center justify-between">
+                    <span><i class="fa-solid fa-star text-accentSage mr-1"></i> Youngest Joy</span>
                 </div>
             </div>
         </div>
@@ -149,38 +153,31 @@
 
     <!-- Memory Jar & Remaining Trio Photo Cards -->
     <section class="max-w-6xl mx-auto px-4">
-        <div class="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
-            <div>
-                <h3 class="font-serif text-2xl font-semibold text-textDark">Our Trio Moments</h3>
-                <p class="text-xs text-gray-500 mt-1">Click any card to read the note</p>
-            </div>
-            
-            <!-- Category Filter Buttons -->
-            <div class="flex flex-wrap gap-2" id="filterButtons">
-                <!-- Dynamic Filter Buttons -->
-            </div>
+        <div class="mb-8 text-center sm:text-left">
+            <h3 class="font-serif text-2xl font-semibold text-textDark">Our Trio Moments</h3>
+            <p class="text-xs text-mutedText mt-1">Click any card to read the full note</p>
         </div>
 
         <!-- Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="memoryGrid">
-            <!-- Dynamic Memory Cards -->
+            <!-- Rendered by JS -->
         </div>
     </section>
 
     <!-- Modal Detail Foto & Pesan -->
     <div id="photoModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl relative border border-softRose max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-textDark w-8 h-8 rounded-full flex items-center justify-center">
-                <i class="fa-solid fa-xmark text-lg"></i>
+        <div class="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl relative border border-softSage max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-textDark w-8 h-8 rounded-full flex items-center justify-center bg-gray-50">
+                <i class="fa-solid fa-xmark text-base"></i>
             </button>
-            <div class="w-full h-64 rounded-2xl overflow-hidden mb-4 bg-softRose">
+            <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-softSage">
                 <img id="modalImg" src="" alt="Memory" class="w-full h-full object-cover">
             </div>
-            <span id="modalCategory" class="text-[11px] font-bold text-warmPeach uppercase tracking-wider bg-softRose px-3 py-1 rounded-full inline-block mb-2">Category</span>
+            <span id="modalCategory" class="text-[10px] font-bold text-accentSage uppercase tracking-wider bg-softSage px-3 py-1 rounded-full inline-block mb-2">Category</span>
             <h3 id="modalTitle" class="font-serif text-2xl text-textDark mb-3">Title</h3>
-            <p id="modalText" class="text-gray-600 text-sm leading-relaxed mb-6">Text...</p>
+            <p id="modalText" class="text-mutedText text-sm leading-relaxed mb-6">Text...</p>
             <div class="text-right">
-                <button onclick="closeModal()" class="px-5 py-2.5 bg-warmPeach text-white text-xs font-semibold rounded-xl hover:bg-[#d69386] transition-colors">
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-accentSage text-white text-xs font-semibold rounded-xl hover:bg-[#7b9487] transition-colors">
                     Close Note
                 </button>
             </div>
@@ -188,14 +185,13 @@
     </div>
 
     <script>
-        // Data 3 Foto Bertiga Lainnya untuk Kartu Memori
         const memories = [
             {
                 id: 1,
                 category: "Trio",
                 title: "Safe Place to Land",
                 image: "trio-2.jpg",
-                text: "Whenever the world gets overwhelming, coming back to our group chat always brings instant peace. Distance means nothing when people mean so much."
+                text: "Whenever the world gets overwhelming, coming back to our group chat always brings instant peace. Distance means nothing when people mean so much to each other."
             },
             {
                 id: 2,
@@ -213,52 +209,28 @@
             }
         ];
 
-        let currentFilter = "All";
-
-        function renderFilters() {
-            const categories = ["All", "Trio"];
-            const container = document.getElementById("filterButtons");
-            container.innerHTML = categories.map(cat => `
-                <button onclick="filterCategory('${cat}')" class="px-4 py-1.5 rounded-2xl text-xs font-semibold transition-all ${
-                    currentFilter === cat 
-                    ? 'bg-warmPeach text-white shadow-sm' 
-                    : 'bg-white text-gray-600 hover:bg-softRose hover:text-warmPeach border border-gray-100'
-                }">
-                    ${cat}
-                </button>
-            `).join('');
-        }
-
-        function filterCategory(cat) {
-            currentFilter = cat;
-            renderFilters();
-            renderCards();
-        }
-
         function renderCards() {
             const grid = document.getElementById("memoryGrid");
-            const filtered = memories.filter(m => currentFilter === "All" || m.category === currentFilter);
-
-            grid.innerHTML = filtered.map(item => `
-                <div onclick="openModal('${item.id}')" class="bg-white rounded-3xl p-5 card-shadow border border-gray-100 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+            grid.innerHTML = memories.map(item => `
+                <div onclick="openModal(${item.id})" class="bg-white rounded-3xl p-5 card-shadow border border-gray-100 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
                     <div>
-                        <div class="w-full h-48 rounded-2xl overflow-hidden mb-4 bg-softRose">
+                        <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-softSage">
                             <img src="${item.image}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80';" alt="${item.title}" class="w-full h-full object-cover">
                         </div>
-                        <span class="text-[10px] font-bold text-warmPeach bg-softRose px-2.5 py-1 rounded-full uppercase tracking-wider">${item.category}</span>
+                        <span class="text-[10px] font-bold text-accentSage bg-softSage px-2.5 py-1 rounded-full uppercase tracking-wider">${item.category}</span>
                         <h4 class="font-serif text-lg font-semibold text-textDark mt-2 mb-2">${item.title}</h4>
-                        <p class="text-gray-600 text-xs line-clamp-2 leading-relaxed">"${item.text}"</p>
+                        <p class="text-mutedText text-xs line-clamp-2 leading-relaxed">"${item.text}"</p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-gray-50 text-[11px] text-gray-400 flex items-center justify-between">
                         <span>Read full note</span>
-                        <i class="fa-solid fa-arrow-right text-warmPeach"></i>
+                        <i class="fa-solid fa-arrow-right text-accentSage"></i>
                     </div>
                 </div>
             `).join('');
         }
 
         function openModal(id) {
-            const item = memories.find(m => m.id == id);
+            const item = memories.find(m => m.id === id);
             if (!item) return;
 
             document.getElementById("modalImg").src = item.image;
@@ -269,17 +241,21 @@
             document.getElementById("photoModal").classList.remove("hidden");
         }
 
+        function pullRandomNote() {
+            const randomItem = memories[Math.floor(Math.random() * memories.length)];
+            openModal(randomItem.id);
+        }
+
         function closeModal() {
             document.getElementById("photoModal").classList.add("hidden");
         }
 
         window.onclick = function(e) {
             const modal = document.getElementById("photoModal");
-            if (e.target == modal) closeModal();
+            if (e.target === modal) closeModal();
         }
 
-        // Init
-        renderFilters();
+        // Run
         renderCards();
     </script>
 </body>
