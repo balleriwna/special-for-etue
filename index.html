@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,6 +92,14 @@
             user-select: none;
             animation: fallDown 2.5s linear forwards;
         }
+
+        .sticky-note {
+            background: linear-gradient(135deg, #1E2E4A 0%, #152238 100%);
+            transition: all 0.3s ease;
+        }
+        .sticky-note:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+        }
     </style>
 </head>
 <body class="min-h-screen font-sans pb-24 relative overflow-x-hidden">
@@ -118,13 +126,13 @@
 
         <!-- Cute Interactive Actions Bar -->
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <button onclick="pullRandomNote()" class="px-5 py-3 bg-skyAccent hover:bg-[#0284c7] text-navyDark font-bold text-xs sm:text-sm rounded-2xl shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+            <button onclick="playPopSound(); pullRandomNote();" class="px-5 py-3 bg-skyAccent hover:bg-[#0284c7] text-navyDark font-bold text-xs sm:text-sm rounded-2xl shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
                 <i class="fa-solid fa-cookie-bite text-base"></i> Read a Heartfelt Note
             </button>
-            <button onclick="sendVirtualHug()" class="px-5 py-3 bg-navyCard hover:bg-navyLight text-softBlue border border-softBlue/30 font-semibold text-xs sm:text-sm rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+            <button onclick="playPopSound(); sendVirtualHug();" class="px-5 py-3 bg-navyCard hover:bg-navyLight text-softBlue border border-softBlue/30 font-semibold text-xs sm:text-sm rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
                 <i class="fa-solid fa-heart text-pink-400"></i> Send Endless Hugs
             </button>
-            <button onclick="showerLoveAndFlowers()" class="px-5 py-3 bg-gradient-to-r from-pink-500/20 to-skyAccent/20 hover:from-pink-500/30 hover:to-skyAccent/30 text-softBlue border border-pink-400/30 font-semibold text-xs sm:text-sm rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+            <button onclick="playPopSound(); showerLoveAndFlowers();" class="px-5 py-3 bg-gradient-to-r from-pink-500/20 to-skyAccent/20 hover:from-pink-500/30 hover:to-skyAccent/30 text-softBlue border border-pink-400/30 font-semibold text-xs sm:text-sm rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
                 <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> Flower Rain 🌸
             </button>
         </div>
@@ -188,6 +196,79 @@
         </div>
     </section>
 
+    <!-- FEATURE NEW 1: ⏳ TIMELINE PERJALANAN BERTIGA -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-skyAccent bg-navyCard border border-softBlue/20 px-3 py-1 rounded-full uppercase tracking-wider">Memory Lane ⏳</span>
+            <h3 class="font-serif text-3xl font-semibold text-textLight mt-2">Garis Waktu Perjalanan Bertiga ✨</h3>
+            <p class="text-xs text-textMuted mt-1">Jejak langkah manis dari awal berkenalan hingga hari ini</p>
+        </div>
+
+        <div class="relative border-l-2 border-softBlue/30 ml-4 sm:ml-32 space-y-8 pl-6 sm:pl-8">
+            <!-- Timeline Item 1 -->
+            <div class="relative group">
+                <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-skyAccent border-4 border-navyDark flex items-center justify-center"></div>
+                <div class="bg-navyCard p-5 rounded-2xl border border-softBlue/20 card-glow">
+                    <span class="text-[10px] font-bold text-skyAccent bg-navyDark px-2.5 py-1 rounded-full uppercase">Fase 1: Langkah Awal</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-2">Pertemuan Pertama di Layar Virtual 🌐</h4>
+                    <p class="text-textMuted text-xs mt-1 leading-relaxed">Sapaan awal yang sederhana di dunia maya. Siapa sangka dari tombol kirim pesan singkat itu, Semesta sedang merajut ikatan persaudaraan terindah dalam hidup kita.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="relative group">
+                <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-pink-400 border-4 border-navyDark flex items-center justify-center"></div>
+                <div class="bg-navyCard p-5 rounded-2xl border border-softBlue/20 card-glow">
+                    <span class="text-[10px] font-bold text-pink-300 bg-navyDark px-2.5 py-1 rounded-full uppercase">Fase 2: Kenyamanan</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-2">Sesi 'Yapping' & Obrolan Larut Malam 🌙</h4>
+                    <p class="text-textMuted text-xs mt-1 leading-relaxed">Mulai dari cerita acak, bertukar musik, hingga curhat mendalam tentang kehidupan. Dinding canggung perlahan runtuh, berganti jadi rasa nyaman tanpa rasa takut dihakimi.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="relative group">
+                <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-amber-400 border-4 border-navyDark flex items-center justify-center"></div>
+                <div class="bg-navyCard p-5 rounded-2xl border border-softBlue/20 card-glow">
+                    <span class="text-[10px] font-bold text-amber-300 bg-navyDark px-2.5 py-1 rounded-full uppercase">Fase 3: Segitiga Harmoni</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-2">Resmi Jadi Dynamic Trio (Empal2Empal) 🌷</h4>
+                    <p class="text-textMuted text-xs mt-1 leading-relaxed">Peran terbagi sempurna: Kak Je si sulung pelindung teduh, Biyel jembatan pengikat kehangatan, dan Sal si bungsu pembawa energi keceriaan. Kita resmi jadi tim terbaik!</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="relative group">
+                <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-6 h-6 rounded-full bg-softBlue border-4 border-navyDark flex items-center justify-center"></div>
+                <div class="bg-navyCard p-5 rounded-2xl border border-softBlue/20 card-glow">
+                    <span class="text-[10px] font-bold text-softBlue bg-navyDark px-2.5 py-1 rounded-full uppercase">Fase 4: Milestone</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-2">Merayakan 1st Trio Anniversary 🎉</h4>
+                    <p class="text-textMuted text-xs mt-1 leading-relaxed">Satu tahun penuh suka, duka, tawa, dan doa yang saling menguatkan. Menegaskan bahwa jarak geografis tidak pernah sanggup melunturkan hangatnya persaudaraan ini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE NEW 2: 🍬 MESIN PERMEN HATI / FORTUNE COOKIE -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 text-center relative overflow-hidden">
+            <span class="font-hand text-2xl text-softBlue block">~ Sweet Surprise Machine ~</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mt-1 mb-2">Mesin Permen Afirmasi Harian 🍬✨</h3>
+            <p class="text-xs text-textMuted mb-6 max-w-md mx-auto">Klik tombol atau gambar permen di bawah untuk menarik pesan manis acak khusus hari ini!</p>
+
+            <div class="flex flex-col items-center justify-center">
+                <div id="candyDispenser" onclick="dispenseCandy()" class="w-28 h-28 sm:w-36 sm:h-36 bg-navyDark rounded-full border-4 border-softBlue flex items-center justify-center text-5xl sm:text-6xl cursor-pointer hover:scale-110 transition-transform shadow-2xl relative group">
+                    <span id="candyIcon">🍬</span>
+                    <div class="absolute -bottom-2 bg-skyAccent text-navyDark text-[10px] font-bold px-3 py-0.5 rounded-full uppercase shadow">Click Me!</div>
+                </div>
+
+                <!-- Display Box -->
+                <div id="candyResultBox" class="mt-6 bg-navyDark/90 p-5 rounded-2xl border border-softBlue/20 max-w-lg w-full text-center hidden transition-all">
+                    <span id="candyBadge" class="text-[10px] font-bold text-navyDark bg-softBlue px-3 py-1 rounded-full uppercase inline-block mb-2">Pesan Manis Hari Ini</span>
+                    <p id="candyText" class="text-sm sm:text-base text-textLight font-medium leading-relaxed italic">"..."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GAME SECTION 1: 🎮 TANGKAP BUNGA & CINTA MINI GAME -->
     <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
         <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 relative">
@@ -233,6 +314,36 @@
             <button onclick="spinWheel()" id="spinBtn" class="px-6 py-3 bg-gradient-to-r from-skyAccent to-softBlue hover:opacity-90 text-navyDark font-bold text-sm rounded-2xl shadow-lg transition-all transform hover:-translate-y-0.5">
                 Spin The Wheel! 🎯
             </button>
+        </div>
+    </section>
+
+    <!-- FEATURE NEW 3: 🧩 KUIS INTERAKTIF "SEBERAPA COCOK FREKUENSI KITA?" -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 relative">
+            <div class="text-center mb-6">
+                <span class="font-hand text-2xl text-softBlue block">~ Mini Sisterhood Quiz ~</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mt-1">Uji Frekuensi Kebersamaan Kita 🧩💖</h3>
+                <p class="text-xs text-textMuted mt-1">Jawab 3 pertanyaan singkat ini buat klaim Piala Sisterhood!</p>
+            </div>
+
+            <div id="quizContainer" class="bg-navyDark/80 p-6 rounded-2xl border border-softBlue/20 max-w-xl mx-auto">
+                <!-- Question View -->
+                <div id="quizQuestionBox">
+                    <span id="quizStep" class="text-[10px] font-bold text-skyAccent bg-navyCard px-2.5 py-1 rounded-full uppercase">Pertanyaan 1 dari 3</span>
+                    <h4 id="quizQuestion" class="font-serif text-base sm:text-lg text-textLight font-semibold mt-3 mb-4">Apa reaksi pertama kalau salah satu dari kita lagi panik atau sedih?</h4>
+                    <div id="quizOptions" class="space-y-3">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Result View (Hidden) -->
+                <div id="quizResultBox" class="text-center hidden">
+                    <div class="text-5xl mb-3">🏆</div>
+                    <h4 class="font-serif text-xl font-bold text-softBlue">100% Match: Soul Sisters Forever!</h4>
+                    <p class="text-xs text-textMuted mt-2 leading-relaxed">Nggak diragukan lagi, frekuensi Kak Je, Biyel, dan Sal itu udah menyatu tanpa celah. Apapun tantangannya, kita selalu tau cara merawat satu sama lain!</p>
+                    <button onclick="resetQuiz()" class="mt-5 px-5 py-2 bg-skyAccent text-navyDark text-xs font-bold rounded-xl shadow">Main Ulang 🔄</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -374,6 +485,69 @@
         </div>
     </section>
 
+    <!-- FEATURE NEW 4: 🏆 GALERI LENCANA KEHORMATAN BERTIGA -->
+    <section class="max-w-6xl mx-auto px-4 mb-20 relative z-10">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-skyAccent bg-navyCard border border-softBlue/20 px-3 py-1 rounded-full uppercase tracking-wider">Honors & Titles 🏆</span>
+            <h3 class="font-serif text-3xl font-semibold text-textLight mt-2">Lencana Kehormatan Bertiga 🎖️</h3>
+            <p class="text-xs text-textMuted mt-1">Gelar cinta khusus untuk kepribadian paling istimewa</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div onclick="claimBadge('Kak Je: The Wise Guardian')" class="bg-navyCard p-6 rounded-3xl border border-softBlue/20 text-center cursor-pointer card-glow transform hover:-translate-y-1 transition-all">
+                <div class="w-16 h-16 mx-auto bg-navyDark border-2 border-amber-300 rounded-2xl flex items-center justify-center text-3xl mb-3 shadow">🛡️</div>
+                <h4 class="font-serif text-lg font-bold text-textLight">The Wise Guardian</h4>
+                <p class="text-xs text-softBlue mt-1 font-hand text-lg">Dipersembahkan untuk Kak Je</p>
+                <p class="text-textMuted text-xs mt-3 leading-relaxed">Sosok sulung pelindung yang tak pernah kehabisan kata-kata penenang dan keteduhan.</p>
+            </div>
+
+            <div onclick="claimBadge('Biyel: The Loving Glue')" class="bg-navyCard p-6 rounded-3xl border border-softBlue/20 text-center cursor-pointer card-glow transform hover:-translate-y-1 transition-all">
+                <div class="w-16 h-16 mx-auto bg-navyDark border-2 border-pink-400 rounded-2xl flex items-center justify-center text-3xl mb-3 shadow">🎀</div>
+                <h4 class="font-serif text-lg font-bold text-textLight">The Loving Glue</h4>
+                <p class="text-xs text-softBlue mt-1 font-hand text-lg">Dipersembahkan untuk Biyel</p>
+                <p class="text-textMuted text-xs mt-3 leading-relaxed">Jembatan penengah yang selalu merawat rasa hangat dan memastikan ikatan tetap erat.</p>
+            </div>
+
+            <div onclick="claimBadge('Sal: The Sunshine Generator')" class="bg-navyCard p-6 rounded-3xl border border-softBlue/20 text-center cursor-pointer card-glow transform hover:-translate-y-1 transition-all">
+                <div class="w-16 h-16 mx-auto bg-navyDark border-2 border-skyAccent rounded-2xl flex items-center justify-center text-3xl mb-3 shadow">☀️</div>
+                <h4 class="font-serif text-lg font-bold text-textLight">The Sunshine Generator</h4>
+                <p class="text-xs text-softBlue mt-1 font-hand text-lg">Dipersembahkan untuk Sal</p>
+                <p class="text-textMuted text-xs mt-3 leading-relaxed">Si bungsu pemantik tawa dan energi positif yang selalu mencerahkan hari-hari kita.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE NEW 5: 📝 DINDING HARAPAN BERTIGA (STICKY NOTES WALL) -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 relative">
+            <div class="text-center mb-8">
+                <span class="font-hand text-2xl text-softBlue">~ Interactive Wish Wall ~</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mt-1">Dinding Harapan Bertiga 📝✨</h3>
+                <p class="text-xs text-textMuted mt-1">Tuliskan pesan harapan baru di bawah untuk ditempel di dinding ini!</p>
+            </div>
+
+            <!-- Input Box -->
+            <div class="flex flex-col sm:flex-row gap-3 mb-8 max-w-xl mx-auto">
+                <input type="text" id="wishInput" placeholder="Tuliskan doa/harapan singkat di sini..." class="flex-1 bg-navyDark border border-softBlue/30 text-xs sm:text-sm text-textLight px-4 py-3 rounded-2xl focus:outline-none focus:border-skyAccent">
+                <button onclick="addWish()" class="px-5 py-3 bg-skyAccent hover:bg-[#0284c7] text-navyDark text-xs font-bold rounded-2xl shadow transition-all whitespace-nowrap">
+                    Tempel Note 📌
+                </button>
+            </div>
+
+            <!-- Sticky Wall Container -->
+            <div id="wishWall" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="sticky-note p-4 rounded-2xl border border-softBlue/20 relative -rotate-1">
+                    <span class="text-xs font-hand text-softBlue block">~ Dari Biyel</span>
+                    <p class="text-xs text-textLight font-medium mt-1">"Semoga kita bertiga selalu dikasih sehat, bahagia, dan makin sering kumpul yapping!"</p>
+                </div>
+                <div class="sticky-note p-4 rounded-2xl border border-softBlue/20 relative rotate-1">
+                    <span class="text-xs font-hand text-softBlue block">~ Untuk Kak Je & Sal</span>
+                    <p class="text-xs text-textLight font-medium mt-1">"Kapan pun dunia luar terasa berat, ingat kalau grup chat ini selalu jadi rumah aman kalian."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- OUR PINKY PROMISES -->
     <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
         <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 relative">
@@ -452,6 +626,24 @@
 
     <!-- JavaScript Data & Interactivity -->
     <script>
+        // Web Audio Synth Click Sound (Zero external audio file needed!)
+        function playPopSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.08);
+            } catch(e) {}
+        }
+
         const memories = [
             {
                 id: 1,
@@ -494,6 +686,117 @@
             }
         };
 
+        const candyQuotes = [
+            "Kak Je & Sal adalah bukti nyata kalau kehangatan itu nyata meski dipisah jarak! 💖",
+            "Jangan lupa minum air putih dan istirahat ya hari ini, malaikat-malaikatku! 🌸",
+            "Dunia luar boleh bising, tapi ruang bertiga ini selalu jadi tempat paling aman buat kalian. 🧸",
+            "Senyum kalian adalah alasan mengapa hariku terasa 100x lebih cerah! ✨",
+            "Kamu sudah berjuang dengan sangat baik hari ini. Aku bangga banget sama kamu! 🌷"
+        ];
+
+        function dispenseCandy() {
+            playPopSound();
+            const text = candyQuotes[Math.floor(Math.random() * candyQuotes.length)];
+            const box = document.getElementById("candyResultBox");
+            const txt = document.getElementById("candyText");
+            box.classList.remove("hidden");
+            txt.innerText = `"${text}"`;
+
+            confetti({
+                particleCount: 30,
+                spread: 50,
+                origin: { y: 0.6 },
+                colors: ['#38bdf8', '#bae6fd', '#f472b6']
+            });
+        }
+
+        // Quiz Logic
+        const quizData = [
+            {
+                q: "Apa reaksi pertama kalau salah satu dari kita lagi panik atau sedih?",
+                opts: [
+                    "Langsung kumpul di GC, kasih pelukan virtual & dengerin sampai tuntas 💖",
+                    "Kirim stiker lucu buat mencairkan suasana 🌸",
+                    "Dua-duanya benar! Kita selalu ada di tim yang sama ✨"
+                ]
+            },
+            {
+                q: "Apa hal yang paling kita kangenin dari kebiasaan bertiga?",
+                opts: [
+                    "Yapping larut malam sampai lupa jam 🌙",
+                    "Saling kirim pap makanan & hal acak 🍩",
+                    "Obrolan mendalam tentang mimpi masa depan 🚀"
+                ]
+            },
+            {
+                q: "Aturan paling mutlak di grup bertiga kita apa?",
+                opts: [
+                    "Boleh lelah, tidak boleh merasa sendirian! 🔒",
+                    "Judgment-free zone 100%! 🛡️",
+                    "Semua benar, Kak Je, Biyel & Sal selamanya bertiga! 💖"
+                ]
+            }
+        ];
+
+        let currentQuizStep = 0;
+
+        function renderQuiz() {
+            if(currentQuizStep >= quizData.length) {
+                document.getElementById("quizQuestionBox").classList.add("hidden");
+                document.getElementById("quizResultBox").classList.remove("hidden");
+                confetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
+                return;
+            }
+
+            document.getElementById("quizStep").innerText = `Pertanyaan ${currentQuizStep + 1} dari 3`;
+            document.getElementById("quizQuestion").innerText = quizData[currentQuizStep].q;
+
+            const optsDiv = document.getElementById("quizOptions");
+            optsDiv.innerHTML = quizData[currentQuizStep].opts.map((opt, i) => `
+                <button onclick="playPopSound(); answerQuiz();" class="w-full text-left p-3.5 bg-navyCard hover:bg-navyLight border border-softBlue/20 rounded-xl text-xs sm:text-sm text-textLight font-medium transition-all flex items-center justify-between group">
+                    <span>${opt}</span>
+                    <i class="fa-solid fa-chevron-right text-skyAccent group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            `).join('');
+        }
+
+        function answerQuiz() {
+            currentQuizStep++;
+            renderQuiz();
+        }
+
+        function resetQuiz() {
+            currentQuizStep = 0;
+            document.getElementById("quizQuestionBox").classList.remove("hidden");
+            document.getElementById("quizResultBox").classList.add("hidden");
+            renderQuiz();
+        }
+
+        function claimBadge(title) {
+            playPopSound();
+            confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+            alert(`🎉 Lencana Kehormatan Dituntut!\n\n${title}\n\nTerima kasih sudah menjadi bagian tak terpisahkan dari hidup kita bertiga! 💖`);
+        }
+
+        function addWish() {
+            playPopSound();
+            const input = document.getElementById("wishInput");
+            const val = input.value.trim();
+            if(!val) return alert("Tuliskan dulu harapannya yaa! ✨");
+
+            const wall = document.getElementById("wishWall");
+            const note = document.createElement("div");
+            note.className = "sticky-note p-4 rounded-2xl border border-softBlue/20 relative rotate-1";
+            note.innerHTML = `
+                <span class="text-xs font-hand text-softBlue block">~ Note Baru</span>
+                <p class="text-xs text-textLight font-medium mt-1">"${val}"</p>
+            `;
+            wall.prepend(note);
+            input.value = "";
+
+            confetti({ particleCount: 30, spread: 50, origin: { y: 0.7 } });
+        }
+
         const wheelChallenges = [
             "📸 Spill 1 foto selfie/pap paling lucu kamu di GC sekarang!",
             "🎙️ Kirim voice note 5 detik bilang 'I love you Kak Je, Biyel, Sal'!",
@@ -505,7 +808,7 @@
 
         // Click Trail Sticker
         document.addEventListener('click', function(e) {
-            if (e.target.closest('button') || e.target.closest('.card-glow') || e.target.closest('#gameArena')) return;
+            if (e.target.closest('button') || e.target.closest('.card-glow') || e.target.closest('#gameArena') || e.target.closest('input')) return;
 
             const stickers = ['💖', '🌸', '✨', '🌹', '🦋', '🎀', '🧸', '🌷'];
             const sticker = document.createElement('div');
@@ -520,6 +823,7 @@
 
         // Wheel Spinner Logic
         function spinWheel() {
+            playPopSound();
             const btn = document.getElementById("spinBtn");
             const text = document.getElementById("wheelText");
             btn.disabled = true;
@@ -554,6 +858,7 @@
         let gameInterval, spawnInterval;
 
         function startGame() {
+            playPopSound();
             document.getElementById("gameStartUI").classList.add("hidden");
             document.getElementById("gameStatsUI").classList.remove("hidden");
             score = 0;
@@ -574,6 +879,7 @@
                 
                 item.onclick = function() {
                     if(!gameActive) return;
+                    playPopSound();
                     score += 10;
                     document.getElementById("gameScore").innerText = score;
                     this.remove();
@@ -636,6 +942,7 @@
         }
 
         function openModal(id) {
+            playPopSound();
             const item = memories.find(m => m.id === id);
             if (!item) return;
 
@@ -649,6 +956,7 @@
         }
 
         function openCapsule(id) {
+            playPopSound();
             const capsule = openWhenCapsules[id];
             if (!capsule) return;
 
@@ -668,6 +976,7 @@
         }
 
         function pledgePromise(btn) {
+            playPopSound();
             btn.innerText = "Promised! 💖";
             btn.classList.remove("bg-navyCard", "text-softBlue");
             btn.classList.add("bg-skyAccent", "text-navyDark");
@@ -726,6 +1035,7 @@
 
         let isPlaying = false;
         function toggleMusicPlay() {
+            playPopSound();
             const cd = document.getElementById("cdIcon");
             const btn = document.getElementById("musicBtn");
             const audio = document.getElementById("bgMusic");
@@ -755,8 +1065,9 @@
             if (e.target === modal) closeModal();
         }
 
-        // Run
+        // Run Initializers
         renderCards();
+        renderQuiz();
     </script>
 </body>
 </html>
