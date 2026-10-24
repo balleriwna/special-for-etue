@@ -79,6 +79,19 @@
             font-size: 1.8rem;
             animation: floatUpFade 1.2s ease-out forwards;
         }
+
+        /* Game Falling Item Animation */
+        @keyframes fallDown {
+            0% { top: -40px; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .falling-item {
+            position: absolute;
+            font-size: 2rem;
+            cursor: pointer;
+            user-select: none;
+            animation: fallDown 2.5s linear forwards;
+        }
     </style>
 </head>
 <body class="min-h-screen font-sans pb-24 relative overflow-x-hidden">
@@ -158,7 +171,6 @@
         <div class="bg-navyCard rounded-3xl p-4 sm:p-7 card-glow border border-softBlue/30 text-center relative">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-7 tape-effect rounded-sm rotate-1 border border-white/20 z-20"></div>
 
-            <!-- Sticker Pin Decor -->
             <span class="absolute top-4 left-4 text-2xl z-20">🌸</span>
             <span class="absolute top-4 right-4 text-2xl z-20">💖</span>
 
@@ -173,6 +185,54 @@
                     I honestly never expected that meeting people through a screen could bring this much warmth into my life. We started as strangers, but somewhere along the way, between late night messages and sharing random bits of our days, you two became my home. Thank you for choosing to stay and for making this virtual world feel so real and safe.
                 </p>
             </div>
+        </div>
+    </section>
+
+    <!-- GAME SECTION 1: 🎮 TANGKAP BUNGA & CINTA MINI GAME -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 relative">
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold text-skyAccent bg-navyDark border border-softBlue/20 px-3 py-1 rounded-full uppercase tracking-wider">Mini Arcade Game</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mt-2">Catch The Love & Flowers! 🌸🎮</h3>
+                <p class="text-xs text-textMuted mt-1">Tap/click the falling items as fast as you can in 15 seconds!</p>
+            </div>
+
+            <!-- Game Arena Box -->
+            <div id="gameArena" class="relative w-full h-64 sm:h-72 bg-navyDark rounded-2xl overflow-hidden border border-softBlue/20 flex flex-col items-center justify-center">
+                <!-- Pre-start UI -->
+                <div id="gameStartUI" class="text-center z-10 px-4">
+                    <p class="text-3xl mb-3">🌸 💖 ✨ 🌹</p>
+                    <button onclick="startGame()" class="px-6 py-3 bg-skyAccent hover:bg-[#0284c7] text-navyDark font-bold text-sm rounded-2xl shadow-lg transition-transform transform hover:scale-105">
+                        Start 15s Game 🚀
+                    </button>
+                </div>
+
+                <!-- Active Game Stats UI -->
+                <div id="gameStatsUI" class="absolute top-3 left-4 right-4 flex justify-between items-center text-xs text-softBlue font-bold hidden z-20">
+                    <span>Score: <span id="gameScore" class="text-amber-300 text-base">0</span></span>
+                    <span>Time Left: <span id="gameTimer" class="text-pink-400 text-base">15</span>s</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME SECTION 2: 🎡 RODA TANTANGAN BERTIGA -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20 text-center relative">
+            <span class="font-hand text-2xl text-softBlue block">~ Group Chat Game ~</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mt-1 mb-2">Roda Tantangan Bertiga 🎡</h3>
+            <p class="text-xs text-textMuted mb-6 max-w-md mx-auto">Spin the wheel to get a cute & fun challenge to do in our group chat!</p>
+
+            <!-- Spinner Result Display Box -->
+            <div id="wheelResultBox" class="bg-navyDark/80 p-6 rounded-2xl border border-softBlue/20 max-w-lg mx-auto mb-6 min-h-[120px] flex items-center justify-center">
+                <p id="wheelText" class="text-sm sm:text-base text-softBlue font-medium leading-relaxed">
+                    Press "Spin The Wheel" to get today's random challenge! ✨
+                </p>
+            </div>
+
+            <button onclick="spinWheel()" id="spinBtn" class="px-6 py-3 bg-gradient-to-r from-skyAccent to-softBlue hover:opacity-90 text-navyDark font-bold text-sm rounded-2xl shadow-lg transition-all transform hover:-translate-y-0.5">
+                Spin The Wheel! 🎯
+            </button>
         </div>
     </section>
 
@@ -434,10 +494,18 @@
             }
         };
 
-        // Interactive Click Trail Sticker Feature
+        const wheelChallenges = [
+            "📸 Spill 1 foto selfie/pap paling lucu kamu di GC sekarang!",
+            "🎙️ Kirim voice note 5 detik bilang 'I love you Kak Je, Biyel, Sal'!",
+            "🎵 Sebutkan 1 lagu yang paling ngingetin kamu sama bertiga!",
+            "💌 Tulis 3 kata manis buat Kak Je, Biyel, dan Sal di grup!",
+            "🍰 Sebutkan makanan kesukaan kamu yang mau dimaem bareng kalau ketemu!",
+            "💖 Kirim stiker tergemes kamu di group chat sekarang!"
+        ];
+
+        // Click Trail Sticker
         document.addEventListener('click', function(e) {
-            // Avoid triggering sticker trail on button/card click
-            if (e.target.closest('button') || e.target.closest('.card-glow')) return;
+            if (e.target.closest('button') || e.target.closest('.card-glow') || e.target.closest('#gameArena')) return;
 
             const stickers = ['💖', '🌸', '✨', '🌹', '🦋', '🎀', '🧸', '🌷'];
             const sticker = document.createElement('div');
@@ -449,6 +517,102 @@
 
             setTimeout(() => sticker.remove(), 1200);
         });
+
+        // Wheel Spinner Logic
+        function spinWheel() {
+            const btn = document.getElementById("spinBtn");
+            const text = document.getElementById("wheelText");
+            btn.disabled = true;
+            btn.classList.add("opacity-50");
+
+            let counter = 0;
+            const interval = setInterval(() => {
+                text.innerText = "🌀 " + wheelChallenges[Math.floor(Math.random() * wheelChallenges.length)];
+                counter++;
+                if(counter > 15) {
+                    clearInterval(interval);
+                    const finalChallenge = wheelChallenges[Math.floor(Math.random() * wheelChallenges.length)];
+                    text.innerHTML = `<strong>🎯 Challenge For Group Chat:</strong><br><span class="text-skyAccent font-bold text-base mt-1 inline-block">${finalChallenge}</span>`;
+                    
+                    confetti({
+                        particleCount: 50,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#38bdf8', '#bae6fd']
+                    });
+
+                    btn.disabled = false;
+                    btn.classList.remove("opacity-50");
+                }
+            }, 100);
+        }
+
+        // Mini Game Logic
+        let gameActive = false;
+        let score = 0;
+        let timeLeft = 15;
+        let gameInterval, spawnInterval;
+
+        function startGame() {
+            document.getElementById("gameStartUI").classList.add("hidden");
+            document.getElementById("gameStatsUI").classList.remove("hidden");
+            score = 0;
+            timeLeft = 15;
+            document.getElementById("gameScore").innerText = score;
+            document.getElementById("gameTimer").innerText = timeLeft;
+            gameActive = true;
+
+            const arena = document.getElementById("gameArena");
+
+            spawnInterval = setInterval(() => {
+                if(!gameActive) return;
+                const items = ['🌸', '💖', '✨', '🌹', '🎀', '🌷'];
+                const item = document.createElement('div');
+                item.innerText = items[Math.floor(Math.random() * items.length)];
+                item.className = 'falling-item';
+                item.style.left = Math.random() * (arena.clientWidth - 40) + 'px';
+                
+                item.onclick = function() {
+                    if(!gameActive) return;
+                    score += 10;
+                    document.getElementById("gameScore").innerText = score;
+                    this.remove();
+                };
+
+                arena.appendChild(item);
+                setTimeout(() => item.remove(), 2500);
+            }, 500);
+
+            gameInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById("gameTimer").innerText = timeLeft;
+                if(timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function endGame() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            clearInterval(spawnInterval);
+
+            // Clear falling items
+            const items = document.querySelectorAll('.falling-item');
+            items.forEach(i => i.remove());
+
+            document.getElementById("gameStatsUI").classList.add("hidden");
+            document.getElementById("gameStartUI").classList.remove("hidden");
+            
+            confetti({
+                particleCount: 100,
+                spread: 100,
+                origin: { y: 0.5 },
+                colors: ['#38bdf8', '#bae6fd', '#f472b6']
+            });
+
+            alert(`🎉 Game Over!\nYour Score: ${score} Points!\n\nGelar: Super Sisterhood Master! 🏆💖`);
+        }
 
         function renderCards() {
             const grid = document.getElementById("memoryGrid");
@@ -534,7 +698,6 @@
                 colors: ['#38bdf8', '#bae6fd', '#f472b6', '#fb7185', '#f43f5e']
             });
 
-            // Spawn floating stickers across screen
             const stickers = ['💖', '🌸', '✨', '🌹', '🌷', '🦋', '🎀', '🧸'];
             for(let i = 0; i < 20; i++) {
                 setTimeout(() => {
