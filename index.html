@@ -109,7 +109,7 @@
         <div class="bg-navyCard rounded-3xl p-4 border border-softBlue/20 shadow-xl flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
                 <div class="relative w-12 h-12 rounded-full bg-navyDark border-2 border-softBlue flex items-center justify-center overflow-hidden">
-                    <i id="cdIcon" class="fa-solid fa-compact-disc text-2xl text-softBlue animate-spin-slow"></i>
+                    <i id="cdIcon" class="fa-solid fa-compact-disc text-2xl text-softBlue"></i>
                 </div>
                 <div>
                     <h4 class="text-xs font-bold text-textLight">BFF (Best Friends Forever) 🎵</h4>
@@ -117,23 +117,19 @@
                 </div>
             </div>
             <button onclick="toggleMusicPlay()" id="musicBtn" class="w-10 h-10 rounded-full bg-softBlue text-navyDark flex items-center justify-center font-bold shadow-md hover:bg-skyAccent transition-colors">
-                <i class="fa-solid fa-pause text-sm"></i>
+                <i class="fa-solid fa-play text-sm ml-0.5"></i>
             </button>
         </div>
-        <!-- Hidden Audio Element -->
-        <audio id="bgMusic" loop autoplay>
-            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+        <audio id="bgMusic" loop>
+            <source src="bff.mp3" type="audio/mpeg">
         </audio>
     </section>
 
-    <!-- MAIN HERO PHOTO: trio-1.jpg (Gede, Utuh, Pas) -->
+    <!-- MAIN HERO PHOTO: trio-1.jpg -->
     <section class="max-w-3xl mx-auto px-4 mb-16 relative z-10">
         <div class="bg-navyCard rounded-3xl p-4 sm:p-7 card-glow border border-softBlue/30 text-center relative">
-            
-            <!-- Tape Decor -->
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-7 tape-effect rounded-sm rotate-1 border border-white/20 z-20"></div>
 
-            <!-- Full Sized Portrait Photo Container -->
             <div class="relative w-full max-w-xl mx-auto rounded-2xl overflow-hidden bg-navyDark mb-6 border border-softBlue/20 shadow-2xl">
                 <img src="trio-1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80';" alt="Kak Je, Biyel & Sal" class="w-full h-auto max-h-[750px] object-contain mx-auto block rounded-2xl">
             </div>
@@ -144,6 +140,65 @@
                 <p class="text-textMuted text-xs sm:text-sm leading-relaxed text-justify sm:text-center">
                     I honestly never expected that meeting people through a screen could bring this much warmth into my life. We started as strangers, but somewhere along the way, between late night messages and sharing random bits of our days, you two became my home. Thank you for choosing to stay and for making this virtual world feel so real and safe.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW FEATURE 1: "OPEN WHEN..." DIGITAL ENVELOPES -->
+    <section class="max-w-6xl mx-auto px-4 mb-20 relative z-10">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-skyAccent bg-navyCard border border-softBlue/20 px-3 py-1 rounded-full uppercase tracking-wider">Comfort Capsules</span>
+            <h3 class="font-serif text-3xl font-semibold text-textLight mt-2">Open When You Need Us ✉️</h3>
+            <p class="text-xs text-softBlue mt-1 font-hand text-xl">Click an envelope whenever your heart feels heavy</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Capsule 1 -->
+            <div onclick="openCapsule(1)" class="bg-navyCard rounded-3xl p-6 card-glow border border-softBlue/20 cursor-pointer transform hover:-translate-y-1.5 transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-navyDark border border-softBlue/20 flex items-center justify-center text-skyAccent text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-softBlue bg-navyDark px-2.5 py-1 rounded-full uppercase">For Heavy Days</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-3 mb-2">Open When You Had a Bad Day</h4>
+                    <p class="text-textMuted text-xs leading-relaxed">When the world feels too loud, too exhausting, and everything goes wrong...</p>
+                </div>
+                <div class="mt-5 pt-3 border-t border-navyLight text-xs text-skyAccent font-medium flex items-center justify-between">
+                    <span>Read comfort note</span>
+                    <i class="fa-solid fa-envelope-open text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Capsule 2 -->
+            <div onclick="openCapsule(2)" class="bg-navyCard rounded-3xl p-6 card-glow border border-softBlue/20 cursor-pointer transform hover:-translate-y-1.5 transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-navyDark border border-softBlue/20 flex items-center justify-center text-amber-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-sun text-amber-300"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-softBlue bg-navyDark px-2.5 py-1 rounded-full uppercase">Self-Reminder</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-3 mb-2">Open When You Doubt Yourself</h4>
+                    <p class="text-textMuted text-xs leading-relaxed">When you feel like you're not doing enough or feeling lost in your path...</p>
+                </div>
+                <div class="mt-5 pt-3 border-t border-navyLight text-xs text-skyAccent font-medium flex items-center justify-between">
+                    <span>Read comfort note</span>
+                    <i class="fa-solid fa-envelope-open text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Capsule 3 -->
+            <div onclick="openCapsule(3)" class="bg-navyCard rounded-3xl p-6 card-glow border border-softBlue/20 cursor-pointer transform hover:-translate-y-1.5 transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-navyDark border border-softBlue/20 flex items-center justify-center text-pink-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-softBlue bg-navyDark px-2.5 py-1 rounded-full uppercase">Forever Bond</span>
+                    <h4 class="font-serif text-lg font-semibold text-textLight mt-3 mb-2">Open When You Miss Us</h4>
+                    <p class="text-textMuted text-xs leading-relaxed">When life gets busy, distance feels too far, or you feel alone...</p>
+                </div>
+                <div class="mt-5 pt-3 border-t border-navyLight text-xs text-skyAccent font-medium flex items-center justify-between">
+                    <span>Read comfort note</span>
+                    <i class="fa-solid fa-envelope-open text-xs"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -221,6 +276,49 @@
         </div>
     </section>
 
+    <!-- NEW FEATURE 2: OUR PINKY PROMISES -->
+    <section class="max-w-4xl mx-auto px-4 mb-20 relative z-10">
+        <div class="bg-navyCard rounded-3xl p-6 sm:p-8 card-glow border border-softBlue/20">
+            <div class="text-center mb-8">
+                <span class="font-hand text-2xl text-softBlue">~ Pinky Promise ~</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-textLight mt-1">Our Sisterhood Pledges 🤙</h3>
+                <p class="text-xs text-textMuted mt-1">Little promises we seal together forever</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-navyDark/70 p-4 rounded-2xl border border-softBlue/10 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-hand-holding-heart text-skyAccent text-lg"></i>
+                        <p class="text-xs sm:text-sm text-textLight font-medium">No hiding heavy feelings — our chat is a 100% judgment-free zone.</p>
+                    </div>
+                    <button onclick="pledgePromise(this)" class="px-4 py-1.5 bg-navyCard hover:bg-softBlue hover:text-navyDark border border-softBlue/30 text-softBlue text-xs font-bold rounded-xl transition-all whitespace-nowrap">
+                        I Promise 💖
+                    </button>
+                </div>
+
+                <div class="bg-navyDark/70 p-4 rounded-2xl border border-softBlue/10 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-mug-hot text-skyAccent text-lg"></i>
+                        <p class="text-xs sm:text-sm text-textLight font-medium">Always prioritize rest and mental health over rushing through life.</p>
+                    </div>
+                    <button onclick="pledgePromise(this)" class="px-4 py-1.5 bg-navyCard hover:bg-softBlue hover:text-navyDark border border-softBlue/30 text-softBlue text-xs font-bold rounded-xl transition-all whitespace-nowrap">
+                        I Promise 💖
+                    </button>
+                </div>
+
+                <div class="bg-navyDark/70 p-4 rounded-2xl border border-softBlue/10 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-infinity text-skyAccent text-lg"></i>
+                        <p class="text-xs sm:text-sm text-textLight font-medium">Sisters forever — no matter where life, work, or time takes us.</p>
+                    </div>
+                    <button onclick="pledgePromise(this)" class="px-4 py-1.5 bg-navyCard hover:bg-softBlue hover:text-navyDark border border-softBlue/30 text-softBlue text-xs font-bold rounded-xl transition-all whitespace-nowrap">
+                        I Promise 💖
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Trio Moments Gallery -->
     <section class="max-w-6xl mx-auto px-4 relative z-10">
         <div class="mb-8 text-center sm:text-left">
@@ -239,7 +337,7 @@
             <button onclick="closeModal()" class="absolute top-4 right-4 text-textMuted hover:text-textLight w-8 h-8 rounded-full flex items-center justify-center bg-navyDark border border-softBlue/20">
                 <i class="fa-solid fa-xmark text-base"></i>
             </button>
-            <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-navyDark border border-softBlue/20">
+            <div id="modalImgContainer" class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-navyDark border border-softBlue/20">
                 <img id="modalImg" src="" alt="Memory" class="w-full h-full object-cover">
             </div>
             <span id="modalCategory" class="text-[10px] font-bold text-navyDark bg-softBlue px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">Category</span>
@@ -279,6 +377,24 @@
             }
         ];
 
+        const openWhenCapsules = {
+            1: {
+                category: "Open When Bad Day",
+                title: "Take a Deep Breath, You're Safe Here 🌧️",
+                text: "If today broke your heart or drained your energy, I need you to pause and take a slow, deep breath. Unclench your jaw, relax your shoulders, and let go of the pressure to fix everything right now. The world can be ridiculously unfair and tiring, but you don't have to carry it all on your own shoulders. Cry if you need to, complain as much as you want in our chat, or just stay quiet — we will be right here waiting with warm hugs. You survived today, and that alone is enough."
+            },
+            2: {
+                category: "Open When Doubting Yourself",
+                title: "Look How Far You've Come 🌟",
+                text: "On days when that quiet voice in your head tells you that you aren't doing enough, please remember that we see you. We see how hard you try, how genuinely you care, and how much heart you put into everything you do. You don't have to be perfect to be worthy of love and happiness. You are already doing so amazingly well, and I am so, so proud to have you as my sister. Keep going, step by step."
+            },
+            3: {
+                category: "Open When You Miss Us",
+                title: "Distance Means Nothing To Us 💖",
+                text: "If you're reading this because you feel lonely or miss our random chats, just look up at the same sky we share. Life gets busy, notifications pile up, and real-world responsibilities sometimes pull us away. But our connection isn't bound by time zones or active status. Whenever you send a message, we'll always come running back. You are never alone, because Kak Je, Biyel, and Sal are tied by heart forever."
+            }
+        };
+
         function renderCards() {
             const grid = document.getElementById("memoryGrid");
             grid.innerHTML = memories.map(item => `
@@ -303,12 +419,45 @@
             const item = memories.find(m => m.id === id);
             if (!item) return;
 
+            document.getElementById("modalImgContainer").classList.remove("hidden");
             document.getElementById("modalImg").src = item.image;
             document.getElementById("modalCategory").innerText = item.category;
             document.getElementById("modalTitle").innerText = item.title;
             document.getElementById("modalText").innerText = `"${item.text}"`;
 
             document.getElementById("photoModal").classList.remove("hidden");
+        }
+
+        function openCapsule(id) {
+            const capsule = openWhenCapsules[id];
+            if (!capsule) return;
+
+            document.getElementById("modalImgContainer").classList.add("hidden");
+            document.getElementById("modalCategory").innerText = capsule.category;
+            document.getElementById("modalTitle").innerText = capsule.title;
+            document.getElementById("modalText").innerText = `"${capsule.text}"`;
+
+            document.getElementById("photoModal").classList.remove("hidden");
+
+            confetti({
+                particleCount: 50,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ['#38bdf8', '#bae6fd', '#f43f5e']
+            });
+        }
+
+        function pledgePromise(btn) {
+            btn.innerText = "Promised! 💖";
+            btn.classList.remove("bg-navyCard", "text-softBlue");
+            btn.classList.add("bg-skyAccent", "text-navyDark");
+
+            confetti({
+                particleCount: 40,
+                spread: 50,
+                origin: { y: 0.8 },
+                colors: ['#38bdf8', '#bae6fd']
+            });
         }
 
         function pullRandomNote() {
@@ -339,7 +488,7 @@
             alert("💖 Massive Virtual Hug Sent to Kak Je & Sal!");
         }
 
-        let isPlaying = true;
+        let isPlaying = false;
         function toggleMusicPlay() {
             const cd = document.getElementById("cdIcon");
             const btn = document.getElementById("musicBtn");
@@ -351,10 +500,13 @@
                 btn.innerHTML = '<i class="fa-solid fa-play text-sm ml-0.5"></i>';
                 isPlaying = false;
             } else {
-                audio.play();
-                cd.classList.add("animate-spin-slow");
-                btn.innerHTML = '<i class="fa-solid fa-pause text-sm"></i>';
-                isPlaying = true;
+                audio.play().then(() => {
+                    cd.classList.add("animate-spin-slow");
+                    btn.innerHTML = '<i class="fa-solid fa-pause text-sm"></i>';
+                    isPlaying = true;
+                }).catch(err => {
+                    alert("Pastikan kamu sudah mengunggah file bff.mp3 ke GitHub ya!");
+                });
             }
         }
 
